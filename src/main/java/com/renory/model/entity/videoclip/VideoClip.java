@@ -5,6 +5,8 @@
  */
 package com.renory.model.entity.videoclip;
 
+import java.io.File;
+
 /**
  *
  * @author smit
@@ -12,6 +14,7 @@ package com.renory.model.entity.videoclip;
 public class VideoClip {
     
     private int id;
+    private File videoFile;
     private VideoQuality quality;
     private Resolution resolution;
     private int fps;

@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.renory.model.entity.base;
+package com.renory.model.entity.user;
 
 /**
  *
  * @author smit
  */
-public enum AccessType {
-    ALL, ONLY_FRANDS, ONLY_STUDIOS, ONLY_ALLOWED_BY_ID
+public class RUser {
+    private int id;
 }
