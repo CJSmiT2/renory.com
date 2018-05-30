@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.renory.entity.base;
+package com.renory.model.entity.videoclip;
 
 /**
  *
  * @author smit
  */
-public class CategoryAmv {
-    
+public enum VideoFormat {
+    MP4, AVI
 }

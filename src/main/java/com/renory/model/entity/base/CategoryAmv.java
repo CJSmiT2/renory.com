@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.renory.entity.videoclip;
+package com.renory.model.entity.base;
 
 /**
  *
  * @author smit
  */
-public enum VideoQuality {
-    PREVIEW, NORMAL, EXTENDED
+public class CategoryAmv {
+    
 }

@@ -3,12 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.renory.entity.base;
+package com.renory.model.entity.base;
+
+import java.sql.Timestamp;
 
 /**
  *
  * @author smit
  */
-public enum AccessType {
-    ALL, ONLY_FRANDS, ONLY_STUDIOS, ONLY_ALLOWED_BY_ID
+public class Evaluate {
+    private int userId;
+    private Timestamp time;
 }

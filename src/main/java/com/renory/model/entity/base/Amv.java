@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.renory.entity.base;
+package com.renory.model.entity.base;
 
-import com.renory.entity.videoclip.VideoClip;
-import com.renory.entity.screenshot.ScreenShot;
+import com.renory.model.entity.videoclip.VideoClip;
+import com.renory.model.entity.screenshot.ScreenShot;
 import java.io.File;
 import java.sql.Timestamp;
 import java.util.ArrayList;
