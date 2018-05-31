@@ -5,10 +5,12 @@
  */
 package com.renory.model.entity.amv;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author smit
  */
-class CategoryAmv {
-    
+class MusicSrc {
+    private ArrayList<String> musicSrc = new ArrayList();
 }

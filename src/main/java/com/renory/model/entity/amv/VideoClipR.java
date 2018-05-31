@@ -3,12 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.renory.model.dao;
+package com.renory.model.entity.amv;
+
+import com.renory.model.entity.amv.videoclip.VideoClip;
+import java.util.ArrayList;
 
 /**
  *
  * @author smit
  */
-public class tmp {
-    
+class VideoClipR {
+    private ArrayList<VideoClip> videos = new ArrayList();
 }

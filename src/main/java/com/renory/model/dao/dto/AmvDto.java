@@ -3,20 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.renory.model.entity.amv;
+package com.renory.model.dao.dto;
 
-import com.renory.model.entity.amv.videoclip.VideoClip;
-import java.io.File;
 import java.sql.Date;
 import java.sql.Timestamp;
-import java.util.ArrayList;
 
 /**
  *
  * @author smit
  */
-public class Amv{
-    
+public class AmvDto {
     private int id;
     private String alias;
     private int uploaderUserId;
@@ -25,21 +21,20 @@ public class Amv{
     private int studioId;
     private Date timeCreated;
     private Timestamp timeUploaded;
-    private File poster;
     private int hitsOfPage;
     private int hitsOfOnlineView;
     private int downloadsCount;
     private boolean canComment;
-    private Authors authors;
-    private AnimeSrc animeSrc;
-    private MusicSrc musicSrc;
-    private CategoryAmvR category;
-    private VideoClipR videos;
-    private ScreenShotR screenShots;
-    private EvaluateR evaluating;
-    private AccessTypeR accessType;
-    private AllowedUsers allowedUsers;
-    private Urls urls;
+    private String authorsJSon;
+    private String animeSrcJSon;
+    private String musicSrcJSon;
+    private String categoryesJSon;
+    private String videosJSon;
+    private String screenShotsJSon;
+    private String evaluatingJSon;
+    private String accessTypeJSon;
+    private String allowedUsersJSon;
+    private String urlsJSon;
     private boolean isComplete; 
     
 }

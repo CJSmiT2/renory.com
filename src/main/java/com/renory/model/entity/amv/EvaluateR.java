@@ -5,10 +5,12 @@
  */
 package com.renory.model.entity.amv;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author smit
  */
-class CategoryAmv {
-    
+class EvaluateR {
+    private ArrayList<Evaluate> evaluating = new ArrayList();
 }

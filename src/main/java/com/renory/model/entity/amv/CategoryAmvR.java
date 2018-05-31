@@ -3,15 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.renory.model.entity.screenshot;
+package com.renory.model.entity.amv;
 
-import java.io.File;
+import java.util.ArrayList;
 
 /**
  *
  * @author smit
  */
-public class ScreenShot {
-    private int id;
-    private File file;
+class CategoryAmvR {
+    private ArrayList<CategoryAmv> categoryes = new ArrayList();
 }

@@ -3,13 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.renory.model.entity.videoclip;
+package com.renory.model.entity.amv;
+
+import java.util.ArrayList;
 
 /**
  *
  * @author smit
  */
-public class Resolution {
-    private int width;
-    private int heigth;
+class Urls {
+    private ArrayList<String> urls = new ArrayList();
 }

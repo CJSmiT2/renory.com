@@ -5,10 +5,13 @@
  */
 package com.renory.model.entity.amv;
 
+import java.io.File;
+
 /**
  *
  * @author smit
  */
-class CategoryAmv {
-    
+public class ScreenShot {
+    private int id;
+    private File file;
 }

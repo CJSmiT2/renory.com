@@ -3,12 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.renory.model.entity.amv;
+package com.renory.model.dao;
 
 /**
  *
  * @author smit
  */
-class CategoryAmv {
+public class UserDao {
+    private int id;
+    private String amvsJSon;
     
 }
