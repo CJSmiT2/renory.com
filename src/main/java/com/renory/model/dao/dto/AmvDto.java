@@ -19,22 +19,172 @@ public class AmvDto {
     private String title;
     private String description;
     private int studioId;
-    private Date timeCreated;
+    private Date dateCreated;
     private Timestamp timeUploaded;
     private int hitsOfPage;
     private int hitsOfOnlineView;
     private int downloadsCount;
-    private boolean canComment;
-    private String authorsJSon;
-    private String animeSrcJSon;
-    private String musicSrcJSon;
-    private String categoryesJSon;
-    private String videosJSon;
-    private String screenShotsJSon;
-    private String evaluatingJSon;
-    private String accessTypeJSon;
-    private String allowedUsersJSon;
-    private String urlsJSon;
-    private boolean isComplete; 
+    private String authors;
+    private String animeSrc;
+    private String musicSrc;
+    private String categories;
+    private String videos;
+    private String evaluating;
+    private String urls;
+    private boolean isComplete;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getAlias() {
+        return alias;
+    }
+
+    public void setAlias(String alias) {
+        this.alias = alias;
+    }
+
+    public int getUploaderUserId() {
+        return uploaderUserId;
+    }
+
+    public void setUploaderUserId(int uploaderUserId) {
+        this.uploaderUserId = uploaderUserId;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public int getStudioId() {
+        return studioId;
+    }
+
+    public void setStudioId(int studioId) {
+        this.studioId = studioId;
+    }
+
+    public Date getDateCreated() {
+        return dateCreated;
+    }
+
+    public void setDateCreated(Date dateCreated) {
+        this.dateCreated = dateCreated;
+    }
+
+    public Timestamp getTimeUploaded() {
+        return timeUploaded;
+    }
+
+    public void setTimeUploaded(Timestamp timeUploaded) {
+        this.timeUploaded = timeUploaded;
+    }
+
+    public int getHitsOfPage() {
+        return hitsOfPage;
+    }
+
+    public void setHitsOfPage(int hitsOfPage) {
+        this.hitsOfPage = hitsOfPage;
+    }
+
+    public int getHitsOfOnlineView() {
+        return hitsOfOnlineView;
+    }
+
+    public void setHitsOfOnlineView(int hitsOfOnlineView) {
+        this.hitsOfOnlineView = hitsOfOnlineView;
+    }
+
+    public int getDownloadsCount() {
+        return downloadsCount;
+    }
+
+    public void setDownloadsCount(int downloadsCount) {
+        this.downloadsCount = downloadsCount;
+    }
+
+    public String getAuthors() {
+        return authors;
+    }
+
+    public void setAuthors(String authors) {
+        this.authors = authors;
+    }
+
+    public String getAnimeSrc() {
+        return animeSrc;
+    }
+
+    public void setAnimeSrc(String animeSrc) {
+        this.animeSrc = animeSrc;
+    }
+
+    public String getMusicSrc() {
+        return musicSrc;
+    }
+
+    public void setMusicSrc(String musicSrc) {
+        this.musicSrc = musicSrc;
+    }
+
+    public String getCategories() {
+        return categories;
+    }
+
+    public void setCategories(String categories) {
+        this.categories = categories;
+    }
+
+    public String getVideos() {
+        return videos;
+    }
+
+    public void setVideos(String videos) {
+        this.videos = videos;
+    }
+
+    public String getEvaluating() {
+        return evaluating;
+    }
+
+    public void setEvaluating(String evaluating) {
+        this.evaluating = evaluating;
+    }
+
+    public String getUrls() {
+        return urls;
+    }
+
+    public void setUrls(String urls) {
+        this.urls = urls;
+    }
+
+    public boolean isIsComplete() {
+        return isComplete;
+    }
+
+    public void setIsComplete(boolean isComplete) {
+        this.isComplete = isComplete;
+    }
+    
+    
     
 }

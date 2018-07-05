@@ -3,17 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.renory.service;
+package com.renory.model.entity.screenshot;
 
-import com.renory.model.entity.user.RUser;
+import java.util.ArrayList;
 
 /**
  *
  * @author smit
  */
-public interface UserService {
-    
-    RUser getUser(String login);
-    
-    void createUser(String login);
+class ScreenShotR {
+    private ArrayList<ScreenShot> screenShots = new ArrayList();
 }

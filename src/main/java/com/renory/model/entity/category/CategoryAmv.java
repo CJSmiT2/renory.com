@@ -3,17 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.renory.service;
-
-import com.renory.model.entity.user.RUser;
+package com.renory.model.entity.category;
 
 /**
  *
  * @author smit
  */
-public interface UserService {
-    
-    RUser getUser(String login);
-    
-    void createUser(String login);
+public class CategoryAmv {
+    int id;
+    String name;
+    String alias;
 }

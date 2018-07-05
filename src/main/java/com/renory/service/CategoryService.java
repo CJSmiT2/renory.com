@@ -5,15 +5,18 @@
  */
 package com.renory.service;
 
-import com.renory.model.entity.user.RUser;
+import com.renory.model.entity.category.CategoryAmv;
+import java.util.ArrayList;
 
 /**
  *
  * @author smit
  */
-public interface UserService {
+public interface CategoryService {
     
-    RUser getUser(String login);
+    CategoryAmv get(int id);
     
-    void createUser(String login);
+    ArrayList<CategoryAmv> getAll();
+    
+    ArrayList<CategoryAmv> get(ArrayList<Integer> ids);
 }

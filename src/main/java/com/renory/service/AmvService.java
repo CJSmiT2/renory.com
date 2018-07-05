@@ -5,9 +5,10 @@
  */
 package com.renory.service;
 
+import com.renory.view.dto.AmvBaseInfoDto;
 import com.renory.model.entity.amv.AccessType;
 import com.renory.model.entity.amv.Amv;
-import com.renory.model.entity.amv.videoclip.VideoQuality;
+import com.renory.model.entity.videoclip.VideoQuality;
 import java.io.File;
 import java.sql.Date;
 import java.util.ArrayList;
@@ -20,39 +21,39 @@ public interface AmvService {
     
     Amv get(String alias);
     
-    String createAmv(String title);
+    String createAmv(String title, int userId);
     
-    void editDescription(String alias, String description);
+    void delete(int amvId);
     
-    void setStudio(String alias, int studioId);
+    void updateBaseInfo(AmvBaseInfoDto baseInfo);
     
-    void setTimeCreated(String alias, Date timeCreated);
+    void setStudio(int amvId, int studioId);
     
-    void addHit(String alias);
+    void addHit(int amvId);
     
-    void addHitOnlineView(String alias);
+    void addHitOnlineView(int amvId);
     
-    void addDownloadCount(String alias);
+    void addDownloadCount(int amvId);
     
-    void canComment(String alias, boolean can);
+    void canComment(int amvId, boolean can);
     
-    void addAuthor(String alias, int userId);
+    void addAuthor(int amvId, int userId);
     
-    void addAnimeSrc(String alias, int srcId);
+    void addAnimeSrc(int amvId, int animeId);
     
-    void addMusicSrc(String alias, String musicTitle);
+    void addMusicSrc(int amvId, int musicId);
     
-    void addCategory(String alias, int categoryId);
+    void addCategory(int amvId, int categoryId);
     
-    void addVideo(String alias, File videoFile, VideoQuality quality);
+    void addVideo(int amvId, File videoFile, VideoQuality quality);
     
-    void addScreenShots(String alias, ArrayList<File> screenShots);
+    void addScreenShots(int amvId, ArrayList<File> screenShots);
     
-    void addEvaluating(String alias, int userId);
+    void addEvaluating(int amvId, int userId);
     
     void allowedAccess(ArrayList<AccessType> access);
     
-    void addUrl(String alias, String url);
+    void addUrl(int amvId, String url);
     
     void setIsComplete(String alias, boolean complete);
     

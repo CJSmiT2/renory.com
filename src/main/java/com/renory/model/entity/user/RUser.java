@@ -11,4 +11,6 @@ package com.renory.model.entity.user;
  */
 public class RUser {
     private int id;
+    private String alias;
+    private String about;
 }

@@ -14,21 +14,31 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author smit
  */
 @Controller
-public class MainController {
+@RequestMapping(value = {"manager/"})
+public class ManagerController {
     
-    @RequestMapping(value = {"/","/home"})
-    public Object home(){
+    @RequestMapping(value = {"create_new_amv_page"})
+    public Object createNew(){
         throw new UnsupportedOperationException();
     }
     
-    @RequestMapping(value = {"amv/{alias}"})
-    public Object amv(@PathVariable("alias") String alias){
+    
+    
+    @RequestMapping(value = {"update_base_info/{alias}"})
+    public Object updateBaseInfo(@PathVariable("alias") String alias){
+    /*
+        Update: title, alias, description, timeCreated, urls
+    */
         throw new UnsupportedOperationException();
     }
     
-    @RequestMapping(value = {"amv/list_all"})
-    public Object amvListAll(){
+    @RequestMapping(value = {"update_poster/{alias}"})
+    public Object updatePoster(@PathVariable("alias") String alias){
+    /*
+        Update: posterFile
+    */
         throw new UnsupportedOperationException();
     }
+
     
 }

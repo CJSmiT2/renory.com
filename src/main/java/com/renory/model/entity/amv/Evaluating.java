@@ -3,17 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.renory.service;
+package com.renory.model.entity.amv;
 
-import com.renory.model.entity.user.RUser;
+import com.renory.model.entity.evaluate.Evaluate;
+import java.util.ArrayList;
 
 /**
  *
  * @author smit
  */
-public interface UserService {
-    
-    RUser getUser(String login);
-    
-    void createUser(String login);
+public class Evaluating {
+    private ArrayList<Evaluate> evaluating = new ArrayList();
 }

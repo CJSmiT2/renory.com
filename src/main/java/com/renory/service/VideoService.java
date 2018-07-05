@@ -5,15 +5,10 @@
  */
 package com.renory.service;
 
-import com.renory.model.entity.user.RUser;
-
 /**
  *
  * @author smit
  */
-public interface UserService {
+public interface VideoService {
     
-    RUser getUser(String login);
-    
-    void createUser(String login);
 }

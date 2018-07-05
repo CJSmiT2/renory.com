@@ -14,9 +14,11 @@ import java.util.ArrayList;
  */
 public interface AnimeService {
     
-    int addAnime(ArrayList<String> titles);
+    int addAnime(String engTitle);
     
     Anime getAnime(int id);
+    
+    ArrayList<Anime> getAnime(ArrayList<Integer> ids);
     
     void deleteAnime(int id);
     

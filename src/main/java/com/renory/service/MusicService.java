@@ -5,15 +5,18 @@
  */
 package com.renory.service;
 
-import com.renory.model.entity.user.RUser;
+import com.renory.model.entity.music.MusicAmv;
+import java.util.ArrayList;
 
 /**
  *
  * @author smit
  */
-public interface UserService {
+public interface MusicService {
     
-    RUser getUser(String login);
+    int add(String artist, String title);
     
-    void createUser(String login);
+    MusicAmv get(int id);
+    
+    ArrayList<MusicAmv> getAll();
 }

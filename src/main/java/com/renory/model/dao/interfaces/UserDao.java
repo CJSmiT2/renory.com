@@ -3,17 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.renory.service;
-
-import com.renory.model.entity.user.RUser;
+package com.renory.model.dao.interfaces;
 
 /**
  *
  * @author smit
  */
-public interface UserService {
+public class UserDao {
+    private int id;
+    private String amvsJSon;
     
-    RUser getUser(String login);
-    
-    void createUser(String login);
 }
