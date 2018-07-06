@@ -5,7 +5,6 @@
  */
 package com.renory.model.entity.amv;
 
-import com.renory.model.entity.evaluate.Evaluate;
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -31,7 +30,6 @@ public class Amv{
     private ArrayList<Integer> musicSrc = new ArrayList();
     private ArrayList<Integer> categories = new ArrayList();
     private ArrayList<Integer> videos = new ArrayList();
-    private Evaluating evaluating = new Evaluating();
     private UrlFromUser urls = new UrlFromUser();
     private boolean isComplete; 
 
@@ -167,14 +165,6 @@ public class Amv{
         this.videos = videos;
     }
 
-    public Evaluating getEvaluating() {
-        return evaluating;
-    }
-
-    public void setEvaluating(Evaluating evaluating) {
-        this.evaluating = evaluating;
-    }
-
     public UrlFromUser getUrls() {
         return urls;
     }
@@ -198,5 +188,12 @@ public class Amv{
     public void setCompleteFalse(){
         isComplete = false;
     }
+
+    @Override
+    public String toString() {
+        return "Amv{" + "id=" + id + ", alias=" + alias + ", uploaderUserId=" + uploaderUserId + ", title=" + title + ", description=" + description + ", studioId=" + studioId + ", dateCreated=" + dateCreated + ", timeUploaded=" + timeUploaded + ", hitsOfPage=" + hitsOfPage + ", hitsOfOnlineView=" + hitsOfOnlineView + ", downloadsCount=" + downloadsCount + ", authors=" + authors + ", animeSrc=" + animeSrc + ", musicSrc=" + musicSrc + ", categories=" + categories + ", videos=" + videos + ", urls=" + urls + ", isComplete=" + isComplete + '}';
+    }
+    
+    
     
 }

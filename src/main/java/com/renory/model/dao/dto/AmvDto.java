@@ -29,7 +29,6 @@ public class AmvDto {
     private String musicSrc;
     private String categories;
     private String videos;
-    private String evaluating;
     private String urls;
     private boolean isComplete;
 
@@ -161,14 +160,6 @@ public class AmvDto {
         this.videos = videos;
     }
 
-    public String getEvaluating() {
-        return evaluating;
-    }
-
-    public void setEvaluating(String evaluating) {
-        this.evaluating = evaluating;
-    }
-
     public String getUrls() {
         return urls;
     }
@@ -183,6 +174,11 @@ public class AmvDto {
 
     public void setIsComplete(boolean isComplete) {
         this.isComplete = isComplete;
+    }
+
+    @Override
+    public String toString() {
+        return "AmvDto{" + "id=" + id + ", alias=" + alias + ", uploaderUserId=" + uploaderUserId + ", title=" + title + ", description=" + description + ", studioId=" + studioId + ", dateCreated=" + dateCreated + ", timeUploaded=" + timeUploaded + ", hitsOfPage=" + hitsOfPage + ", hitsOfOnlineView=" + hitsOfOnlineView + ", downloadsCount=" + downloadsCount + ", authors=" + authors + ", animeSrc=" + animeSrc + ", musicSrc=" + musicSrc + ", categories=" + categories + ", videos=" + videos + ", urls=" + urls + ", isComplete=" + isComplete + '}';
     }
     
     

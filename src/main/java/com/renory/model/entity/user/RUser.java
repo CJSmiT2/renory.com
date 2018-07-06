@@ -5,12 +5,17 @@
  */
 package com.renory.model.entity.user;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author smit
  */
 public class RUser {
+    
     private int id;
     private String alias;
     private String about;
+    private ArrayList<Integer> ignoredUsers = new ArrayList();
+    
 }

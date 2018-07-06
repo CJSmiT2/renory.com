@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.renory.service.impl.amv;
+package com.renory.service.impl;
 
 import com.renory.model.dao.impl.AmvDaoImpl;
 import com.renory.model.dao.interfaces.AmvDao;
-import com.renory.model.entity.amv.AccessType;
+import com.renory.model.entity.amvrules.AccessType;
 import com.renory.model.entity.amv.Amv;
 import com.renory.model.entity.videoclip.VideoQuality;
 import com.renory.model.util.DiskUtil;

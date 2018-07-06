@@ -27,5 +27,7 @@ public interface AmvDao {
     public void delete(Amv amv);
     
     public ArrayList<Amv> getAll();
+
+    public void clearDb();
     
 }

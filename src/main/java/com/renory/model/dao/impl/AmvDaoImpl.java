@@ -19,7 +19,7 @@ public class AmvDaoImpl implements AmvDao{
 
     @Override
     public ArrayList<String> getAllAliaces() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return db.getAllAliaces();
     }
 
     @Override
@@ -50,6 +50,11 @@ public class AmvDaoImpl implements AmvDao{
     @Override
     public ArrayList<Amv> getAll() {
         return ConverterAmv.toEntityArray(db.getAll());
+    }
+
+    @Override
+    public void clearDb() {
+        db.clearDb();
     }
 
 

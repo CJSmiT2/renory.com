@@ -9,6 +9,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.renory.model.entity.amv.Evaluating;
 import com.renory.model.entity.amv.UrlFromUser;
+import com.renory.model.entity.amvrules.RulesByUser;
 import java.io.IOException;
 
 /**
@@ -46,6 +47,22 @@ class ConverterJsonUtil {
     static UrlFromUser toEntityUrls(String urls) {
         try {
             return MAPPER.readValue(urls, UrlFromUser.class);
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
+        }
+    }
+    
+    static String toStringRulesByUser(RulesByUser rules){
+        try {
+            return MAPPER.writeValueAsString(rules);
+        } catch (JsonProcessingException ex) {
+            throw new RuntimeException(ex);
+        }
+    }
+    
+    static RulesByUser toEntityRulesByUser(String rules) {
+        try {
+            return MAPPER.readValue(rules, RulesByUser.class);
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }

@@ -33,7 +33,6 @@ class ConverterAmv {
         dto.setMusicSrc(ConverterIdsUtil.toString(entity.getMusicSrc()));
         dto.setCategories(ConverterIdsUtil.toString(entity.getCategories()));
         dto.setVideos(ConverterIdsUtil.toString(entity.getVideos()));
-        dto.setEvaluating(ConverterJsonUtil.toStringEvaluating(entity.getEvaluating()));
         dto.setUrls(ConverterJsonUtil.toStringUrls(entity.getUrls()));
         dto.setIsComplete(entity.isIsComplete());
         return dto;
@@ -57,7 +56,6 @@ class ConverterAmv {
         entity.setMusicSrc(ConverterIdsUtil.toInt(dto.getMusicSrc()));
         entity.setCategories(ConverterIdsUtil.toInt(dto.getCategories()));
         entity.setVideos(ConverterIdsUtil.toInt(dto.getVideos()));
-        entity.setEvaluating(ConverterJsonUtil.toEntityEvaluating(dto.getEvaluating()));
         entity.setUrls(ConverterJsonUtil.toEntityUrls(dto.getUrls()));
         entity.setIsComplete(dto.isIsComplete());
         return entity;

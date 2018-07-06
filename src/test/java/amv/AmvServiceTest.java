@@ -6,14 +6,14 @@
 package amv;
 
 import com.renory.service.AmvService;
-import com.renory.service.impl.amv.AmvServiceImpl;
+import com.renory.service.impl.AmvServiceImpl;
 import org.junit.Test;
 
 /**
  *
  * @author smit
  */
-public class AmvTestService {
+public class AmvServiceTest {
     private final AmvService amvService = new AmvServiceImpl();
     
     @Test

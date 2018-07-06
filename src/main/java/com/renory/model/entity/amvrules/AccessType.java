@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.renory.model.entity.amv;
+package com.renory.model.entity.amvrules;
 
 /**
  *
  * @author smit
  */
 public enum AccessType {
-    ALL, ONLY_FRANDS, ONLY_STUDIOS, ONLY_ALLOWED_BY_ID
+    FRIENDS, STUDIOS, ALLOWED_BY_ID
 }

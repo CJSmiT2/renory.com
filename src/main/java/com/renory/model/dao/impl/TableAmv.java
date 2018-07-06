@@ -42,12 +42,11 @@ class TableAmv {
                 + "`musicSrc`,"
                 + "`categories`,"
                 + "`videos`,"
-                + "`evaluating`,"
                 + "`urls`,"
                 + "`isComplete`";
         
         String query = "INSERT INTO `" + TABLE + "`(" + columns + ") "
-                    + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                    + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         
         try {
 
@@ -67,9 +66,8 @@ class TableAmv {
             ps.setString(13, amv.getMusicSrc());
             ps.setString(14, amv.getCategories());
             ps.setString(15, amv.getVideos());
-            ps.setString(16, amv.getEvaluating());
-            ps.setString(17, amv.getUrls());
-            ps.setBoolean(18, amv.isIsComplete());
+            ps.setString(16, amv.getUrls());
+            ps.setBoolean(17, amv.isIsComplete());
             
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
@@ -183,7 +181,6 @@ class TableAmv {
                     + "`musicSrc`=?,"
                     + "`categories`=?,"
                     + "`videos`=?,"
-                    + "`evaluating`=?,"
                     + "`urls`=?,"
                     + "`isComplete`=? "
                     + "WHERE `id`=? ORDER by `id` DESC LIMIT 1";
@@ -205,9 +202,9 @@ class TableAmv {
             ps.setString(13, amv.getMusicSrc());
             ps.setString(14, amv.getCategories());
             ps.setString(15, amv.getVideos());
-            ps.setString(16, amv.getEvaluating());
-            ps.setString(17, amv.getUrls());
-            ps.setBoolean(18, amv.isIsComplete());
+            ps.setString(16, amv.getUrls());
+            ps.setBoolean(17, amv.isIsComplete());
+            ps.setInt(18, amv.getId());
             
             ps.executeUpdate();
         } catch (SQLException ex) {
@@ -270,7 +267,7 @@ class TableAmv {
             AmvDto amv = new AmvDto();
             amv.setId(rs.getInt("id"));
             amv.setAlias(rs.getString("alias"));
-            amv.setId(rs.getInt("uploaderUserId"));
+            amv.setUploaderUserId(rs.getInt("uploaderUserId"));
             amv.setTitle(rs.getString("title"));
             amv.setDescription(rs.getString("description"));
             amv.setStudioId(rs.getInt("studioId"));
@@ -284,12 +281,54 @@ class TableAmv {
             amv.setMusicSrc(rs.getString("musicSrc"));
             amv.setCategories(rs.getString("categories"));
             amv.setVideos(rs.getString("videos"));
-            amv.setEvaluating(rs.getString("evaluating"));
             amv.setUrls(rs.getString("urls"));
             amv.setIsComplete(rs.getBoolean("isComplete"));
             return amv;
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
+        }
+    }
+
+    ArrayList<String> getAllAliaces() {
+        ArrayList<String> aliases = new ArrayList();
+        
+        Connection connect = null;
+        Statement statement = null;
+        
+        String query = "SELECT `alias` FROM " + TABLE;
+        
+        try {
+            connect = sql.getConnection();
+            statement = connect.createStatement();
+            ResultSet rs = statement.executeQuery(query);
+            
+            while (rs.next()) {
+                aliases.add(rs.getString("alias"));
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(TableAmv.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                connect.close();
+                statement.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(TableAmv.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        return aliases;
+    }
+
+    void clearDb() {
+        try {
+            Connection connect = sql.getConnection();
+            Statement statement = connect.createStatement();
+            statement.executeUpdate("TRUNCATE TABLE " + TABLE);
+            connect.close();
+            statement.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(TableAmv.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

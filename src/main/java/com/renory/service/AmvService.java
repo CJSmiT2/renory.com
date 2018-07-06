@@ -6,11 +6,10 @@
 package com.renory.service;
 
 import com.renory.view.dto.AmvBaseInfoDto;
-import com.renory.model.entity.amv.AccessType;
+import com.renory.model.entity.amvrules.AccessType;
 import com.renory.model.entity.amv.Amv;
 import com.renory.model.entity.videoclip.VideoQuality;
 import java.io.File;
-import java.sql.Date;
 import java.util.ArrayList;
 
 /**

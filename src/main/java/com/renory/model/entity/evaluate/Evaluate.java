@@ -5,15 +5,13 @@
  */
 package com.renory.model.entity.evaluate;
 
-import java.sql.Timestamp;
-
 /**
  *
  * @author smit
  */
 public class Evaluate {
     private int userId;
-    private Timestamp time;
+    private long time;
     private int rating;
 
     public int getUserId() {
@@ -24,11 +22,11 @@ public class Evaluate {
         this.userId = userId;
     }
 
-    public Timestamp getTime() {
+    public long getTime() {
         return time;
     }
 
-    public void setTime(Timestamp time) {
+    public void setTime(long time) {
         this.time = time;
     }
 
