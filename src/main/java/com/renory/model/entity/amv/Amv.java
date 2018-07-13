@@ -5,9 +5,11 @@
  */
 package com.renory.model.entity.amv;
 
+import java.io.File;
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  *
@@ -16,6 +18,7 @@ import java.util.ArrayList;
 public class Amv{
     private int id;
     private String alias;
+    private File folderOnDisk;
     private int uploaderUserId;
     private String title;
     private String description;
@@ -31,7 +34,7 @@ public class Amv{
     private ArrayList<Integer> categories = new ArrayList();
     private ArrayList<Integer> videos = new ArrayList();
     private UrlFromUser urls = new UrlFromUser();
-    private boolean isComplete; 
+    private boolean isPublic; 
 
     public int getId() {
         return id;
@@ -43,6 +46,14 @@ public class Amv{
 
     public String getAlias() {
         return alias;
+    }
+
+    public File getFolderOnDisk() {
+        return folderOnDisk;
+    }
+
+    public void setFolderOnDisk(File folderOnDisk) {
+        this.folderOnDisk = folderOnDisk;
     }
 
     public void setAlias(String alias) {
@@ -173,27 +184,49 @@ public class Amv{
         this.urls = urls;
     }
 
-    public boolean isIsComplete() {
-        return isComplete;
+    public boolean isIsPublic() {
+        return isPublic;
     }
 
-    public void setIsComplete(boolean isComplete) {
-        this.isComplete = isComplete;
-    }
-    
-    public void setCompleteTrue(){
-        isComplete = true;
-    }
-    
-    public void setCompleteFalse(){
-        isComplete = false;
+    public void setIsPublic(boolean isPublic) {
+        this.isPublic = isPublic;
     }
 
-    @Override
-    public String toString() {
-        return "Amv{" + "id=" + id + ", alias=" + alias + ", uploaderUserId=" + uploaderUserId + ", title=" + title + ", description=" + description + ", studioId=" + studioId + ", dateCreated=" + dateCreated + ", timeUploaded=" + timeUploaded + ", hitsOfPage=" + hitsOfPage + ", hitsOfOnlineView=" + hitsOfOnlineView + ", downloadsCount=" + downloadsCount + ", authors=" + authors + ", animeSrc=" + animeSrc + ", musicSrc=" + musicSrc + ", categories=" + categories + ", videos=" + videos + ", urls=" + urls + ", isComplete=" + isComplete + '}';
+    public void makeFolder() {
+        FolderUtil.make(folderOnDisk);
     }
-    
+
+    public void renameFolderOnDisk() {
+        FolderUtil.rename(alias, folderOnDisk);
+    }
+
+    public void addHitOfpage() {
+        hitsOfPage++;
+    }
+
+    public void addHitOfOnlineView() {
+        hitsOfOnlineView++;
+    }
+
+    public void addDownloadCount() {
+        downloadsCount++;
+    }
+
+    public void addAuthor(int userId) {
+        authors.add(userId);
+    }
+
+    public void deleteAuthor(int userId) {
+        Iterator<Integer> i = authors.iterator();
+        while (i.hasNext()) {
+           Integer value = i.next();
+           if (userId == value){
+               i.remove();
+               break;
+           }
+        }
+    }
+
     
     
 }

@@ -7,11 +7,8 @@ package com.renory.service.impl;
 
 import com.renory.model.dao.impl.AmvDaoImpl;
 import com.renory.model.dao.interfaces.AmvDao;
-import com.renory.model.entity.amvrules.AccessType;
 import com.renory.model.entity.amv.Amv;
 import com.renory.model.entity.videoclip.VideoQuality;
-import com.renory.model.util.DiskUtil;
-import com.renory.model.util.alias.AliasUtil;
 import com.renory.service.AmvService;
 import com.renory.view.dto.AmvBaseInfoDto;
 import java.io.File;
@@ -25,65 +22,86 @@ public class AmvServiceImpl implements AmvService{
     
     private final AmvDao dao = new AmvDaoImpl();
 
-    @Override
-    public Amv get(String alias) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    @Override
-    public void delete(int amvId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+
 
     @Override
     public String createAmv(String title, int userId) {
-        Amv amv = new Amv();
-        amv.setUploaderUserId(userId);
-        amv.setTitle(title);
-        amv.setAlias(AliasUtil.makeUniqeAlias(title, dao.getAllAliaces()));
-        amv.setCompleteFalse();
-        dao.write(amv);
-        DiskUtil.makeAmvFolder(amv.getAlias());
+        Amv amv = AmvServiceUtil.createAmv(title, userId, dao);
         return amv.getAlias();
     }
 
     @Override
+    public Amv get(String alias) {
+        return dao.get(alias);
+    }
+
+    @Override
+    public void delete(int amvId) {
+        Amv amv = dao.get(amvId);
+        dao.delete(amv);
+    }
+
+    @Override
     public void updateBaseInfo(AmvBaseInfoDto baseInfo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        AmvServiceUtil.updateBaseInfo(baseInfo, dao);
     }
 
     @Override
     public void setStudio(int amvId, int studioId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Amv amv = dao.get(amvId);
+        amv.setStudioId(studioId);
+        dao.update(amv);
+    }
+    
+    @Override
+    public void deleteStudio(int amvId) {
+        Amv amv = dao.get(amvId);
+        amv.setStudioId(0);
+        dao.update(amv);
     }
 
     @Override
-    public void addHit(int amvId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void addHitOfpage(int amvId) {
+        Amv amv = dao.get(amvId);
+        amv.addHitOfpage();
+        dao.update(amv);
     }
 
     @Override
     public void addHitOnlineView(int amvId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Amv amv = dao.get(amvId);
+        amv.addHitOfOnlineView();
+        dao.update(amv);
     }
 
     @Override
     public void addDownloadCount(int amvId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void canComment(int amvId, boolean can) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Amv amv = dao.get(amvId);
+        amv.addDownloadCount();
+        dao.update(amv);
     }
 
     @Override
     public void addAuthor(int amvId, int userId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Amv amv = dao.get(amvId);
+        amv.addAuthor(userId);
+        dao.update(amv);
+    }
+
+    @Override
+    public void deleteAuthor(int amvId, int userId) {
+        Amv amv = dao.get(amvId);
+        amv.deleteAuthor(userId);
+        dao.update(amv);
     }
 
     @Override
     public void addAnimeSrc(int amvId, int animeId) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void deleteAnimeSrc(int amvId, int animeId) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -93,7 +111,17 @@ public class AmvServiceImpl implements AmvService{
     }
 
     @Override
+    public void deleteMusicSrc(int amvId, int musicId) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
     public void addCategory(int amvId, int categoryId) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void deleteCategory(int amvId, int categoryId) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -103,7 +131,17 @@ public class AmvServiceImpl implements AmvService{
     }
 
     @Override
+    public void deleteVideo(int amvId, int videoId) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
     public void addScreenShots(int amvId, ArrayList<File> screenShots) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void deleteScreenShot(int amvId, int screenShotId) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -113,19 +151,26 @@ public class AmvServiceImpl implements AmvService{
     }
 
     @Override
-    public void allowedAccess(ArrayList<AccessType> access) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
     public void addUrl(int amvId, String url) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void setIsComplete(String alias, boolean complete) {
+    public void deleteUrl(int amvId, int urlId) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public void makeIsPublic(int amvId) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void makeNotPublic(int amvId) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
 
     
     

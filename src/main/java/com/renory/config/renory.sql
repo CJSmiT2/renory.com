@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: localhost:3306
--- Время создания: Июл 06 2018 г., 13:47
+-- Время создания: Июл 13 2018 г., 14:16
 -- Версия сервера: 10.1.26-MariaDB-0+deb9u1
 -- Версия PHP: 7.0.27-0+deb9u1
 
@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `amv` (
   `id` int(11) NOT NULL,
   `alias` char(255) NOT NULL,
+  `folderNameOnDisk` char(255) NOT NULL,
   `uploaderUserId` int(11) NOT NULL,
   `title` char(255) NOT NULL,
   `description` text NOT NULL,
@@ -44,7 +45,7 @@ CREATE TABLE `amv` (
   `categories` text NOT NULL,
   `videos` text NOT NULL,
   `urls` text NOT NULL,
-  `isComplete` tinyint(1) NOT NULL
+  `isPublic` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------

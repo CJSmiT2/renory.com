@@ -7,6 +7,7 @@ package amv;
 
 import com.renory.model.entity.amv.Amv;
 import com.renory.model.entity.amv.UrlFromUser;
+import java.io.File;
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -23,6 +24,7 @@ public class AmvContentCreater {
     static Amv getAmv(){
         Amv amv = new Amv();
         amv.setAlias("alias-" + getRandomString());
+        amv.setFolderOnDisk(new File("folder-" + getRandomString()));
         amv.setUploaderUserId(getRandomInt());
         amv.setTitle("title-" +getRandomString());
         amv.setDescription("description-" +getRandomString());
@@ -38,7 +40,7 @@ public class AmvContentCreater {
         amv.setCategories(getRandomArray());
         amv.setVideos(getRandomArray());
         amv.setUrls(getRandomUrls());
-        amv.setIsComplete(true);
+        amv.isIsPublic();
         return amv;
     }
     

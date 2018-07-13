@@ -15,6 +15,7 @@ import java.sql.Timestamp;
 public class AmvDto {
     private int id;
     private String alias;
+    private String folderNameOnDisk;
     private int uploaderUserId;
     private String title;
     private String description;
@@ -30,7 +31,7 @@ public class AmvDto {
     private String categories;
     private String videos;
     private String urls;
-    private boolean isComplete;
+    private boolean isPublic;
 
     public int getId() {
         return id;
@@ -48,6 +49,14 @@ public class AmvDto {
         this.alias = alias;
     }
 
+    public String getFolderNameOnDisk() {
+        return folderNameOnDisk;
+    }
+
+    public void setFolderNameOnDisk(String folderNameOnDisk) {
+        this.folderNameOnDisk = folderNameOnDisk;
+    }
+    
     public int getUploaderUserId() {
         return uploaderUserId;
     }
@@ -168,18 +177,15 @@ public class AmvDto {
         this.urls = urls;
     }
 
-    public boolean isIsComplete() {
-        return isComplete;
+    public boolean isIsPublic() {
+        return isPublic;
     }
 
-    public void setIsComplete(boolean isComplete) {
-        this.isComplete = isComplete;
+    public void setIsPublic(boolean isPublic) {
+        this.isPublic = isPublic;
     }
 
-    @Override
-    public String toString() {
-        return "AmvDto{" + "id=" + id + ", alias=" + alias + ", uploaderUserId=" + uploaderUserId + ", title=" + title + ", description=" + description + ", studioId=" + studioId + ", dateCreated=" + dateCreated + ", timeUploaded=" + timeUploaded + ", hitsOfPage=" + hitsOfPage + ", hitsOfOnlineView=" + hitsOfOnlineView + ", downloadsCount=" + downloadsCount + ", authors=" + authors + ", animeSrc=" + animeSrc + ", musicSrc=" + musicSrc + ", categories=" + categories + ", videos=" + videos + ", urls=" + urls + ", isComplete=" + isComplete + '}';
-    }
+
     
     
     

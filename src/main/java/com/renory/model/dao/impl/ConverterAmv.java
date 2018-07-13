@@ -5,8 +5,10 @@
  */
 package com.renory.model.dao.impl;
 
+import com.renory.config.Config;
 import com.renory.model.dao.dto.AmvDto;
 import com.renory.model.entity.amv.Amv;
+import java.io.File;
 import java.util.ArrayList;
 
 /**
@@ -19,6 +21,7 @@ class ConverterAmv {
         AmvDto dto = new AmvDto();
         dto.setId(entity.getId());
         dto.setAlias(entity.getAlias());
+        dto.setFolderNameOnDisk(entity.getFolderOnDisk().getName());
         dto.setUploaderUserId(entity.getUploaderUserId());
         dto.setTitle(entity.getTitle());
         dto.setDescription(entity.getDescription());
@@ -34,7 +37,7 @@ class ConverterAmv {
         dto.setCategories(ConverterIdsUtil.toString(entity.getCategories()));
         dto.setVideos(ConverterIdsUtil.toString(entity.getVideos()));
         dto.setUrls(ConverterJsonUtil.toStringUrls(entity.getUrls()));
-        dto.setIsComplete(entity.isIsComplete());
+        dto.setIsPublic(entity.isIsPublic());
         return dto;
     }
     
@@ -42,6 +45,7 @@ class ConverterAmv {
         Amv entity = new Amv();
         entity.setId(dto.getId());
         entity.setAlias(dto.getAlias());
+        entity.setFolderOnDisk(new File(Config.AMV_FOLDER + dto.getFolderNameOnDisk()));
         entity.setUploaderUserId(dto.getUploaderUserId());
         entity.setTitle(dto.getTitle());
         entity.setDescription(dto.getDescription());
@@ -57,7 +61,7 @@ class ConverterAmv {
         entity.setCategories(ConverterIdsUtil.toInt(dto.getCategories()));
         entity.setVideos(ConverterIdsUtil.toInt(dto.getVideos()));
         entity.setUrls(ConverterJsonUtil.toEntityUrls(dto.getUrls()));
-        entity.setIsComplete(dto.isIsComplete());
+        entity.setIsPublic(dto.isIsPublic());
         return entity;
     }
     

@@ -28,6 +28,7 @@ class TableAmv {
         int id = 0;
         
         String columns = "`alias`,"
+                + "`folderNameOnDisk`,"
                 + "`uploaderUserId`,"
                 + "`title`,"
                 + "`description`,"
@@ -43,31 +44,32 @@ class TableAmv {
                 + "`categories`,"
                 + "`videos`,"
                 + "`urls`,"
-                + "`isComplete`";
+                + "`isPublic`";
         
         String query = "INSERT INTO `" + TABLE + "`(" + columns + ") "
-                    + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                    + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         
         try {
 
             PreparedStatement ps = sql.getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, amv.getAlias());
-            ps.setInt(2, amv.getUploaderUserId());
-            ps.setString(3, amv.getTitle());
-            ps.setString(4, amv.getDescription());
-            ps.setInt(5, amv.getStudioId());
-            ps.setDate(6, amv.getDateCreated());
-            ps.setTimestamp(7, amv.getTimeUploaded());
-            ps.setInt(8, amv.getHitsOfPage());
-            ps.setInt(9, amv.getHitsOfOnlineView());
-            ps.setInt(10, amv.getDownloadsCount());
-            ps.setString(11, amv.getAuthors());
-            ps.setString(12, amv.getAnimeSrc());
-            ps.setString(13, amv.getMusicSrc());
-            ps.setString(14, amv.getCategories());
-            ps.setString(15, amv.getVideos());
-            ps.setString(16, amv.getUrls());
-            ps.setBoolean(17, amv.isIsComplete());
+            ps.setString(2, amv.getFolderNameOnDisk());
+            ps.setInt(3, amv.getUploaderUserId());
+            ps.setString(4, amv.getTitle());
+            ps.setString(5, amv.getDescription());
+            ps.setInt(6, amv.getStudioId());
+            ps.setDate(7, amv.getDateCreated());
+            ps.setTimestamp(8, amv.getTimeUploaded());
+            ps.setInt(9, amv.getHitsOfPage());
+            ps.setInt(10, amv.getHitsOfOnlineView());
+            ps.setInt(11, amv.getDownloadsCount());
+            ps.setString(12, amv.getAuthors());
+            ps.setString(13, amv.getAnimeSrc());
+            ps.setString(14, amv.getMusicSrc());
+            ps.setString(15, amv.getCategories());
+            ps.setString(16, amv.getVideos());
+            ps.setString(17, amv.getUrls());
+            ps.setBoolean(18, amv.isIsPublic());
             
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
@@ -167,6 +169,7 @@ class TableAmv {
         try {
             String query = "UPDATE  `" + TABLE + "` SET "
                     + "`alias`=?,"
+                    + "`folderNameOnDisk`=?,"
                     + "`uploaderUserId`=?,"
                     + "`title`=?,"
                     + "`description`=?,"
@@ -182,29 +185,30 @@ class TableAmv {
                     + "`categories`=?,"
                     + "`videos`=?,"
                     + "`urls`=?,"
-                    + "`isComplete`=? "
+                    + "`isPublic`=? "
                     + "WHERE `id`=? ORDER by `id` DESC LIMIT 1";
             
             connect = sql.getConnection();
             ps = connect.prepareStatement(query);
             ps.setString(1, amv.getAlias());
-            ps.setInt(2, amv.getUploaderUserId());
-            ps.setString(3, amv.getTitle());
-            ps.setString(4, amv.getDescription());
-            ps.setInt(5, amv.getStudioId());
-            ps.setDate(6, amv.getDateCreated());
-            ps.setTimestamp(7, amv.getTimeUploaded());
-            ps.setInt(8, amv.getHitsOfPage());
-            ps.setInt(9, amv.getHitsOfOnlineView());
-            ps.setInt(10, amv.getDownloadsCount());
-            ps.setString(11, amv.getAuthors());
-            ps.setString(12, amv.getAnimeSrc());
-            ps.setString(13, amv.getMusicSrc());
-            ps.setString(14, amv.getCategories());
-            ps.setString(15, amv.getVideos());
-            ps.setString(16, amv.getUrls());
-            ps.setBoolean(17, amv.isIsComplete());
-            ps.setInt(18, amv.getId());
+            ps.setString(2, amv.getFolderNameOnDisk());
+            ps.setInt(3, amv.getUploaderUserId());
+            ps.setString(4, amv.getTitle());
+            ps.setString(5, amv.getDescription());
+            ps.setInt(6, amv.getStudioId());
+            ps.setDate(7, amv.getDateCreated());
+            ps.setTimestamp(8, amv.getTimeUploaded());
+            ps.setInt(9, amv.getHitsOfPage());
+            ps.setInt(10, amv.getHitsOfOnlineView());
+            ps.setInt(11, amv.getDownloadsCount());
+            ps.setString(12, amv.getAuthors());
+            ps.setString(13, amv.getAnimeSrc());
+            ps.setString(14, amv.getMusicSrc());
+            ps.setString(15, amv.getCategories());
+            ps.setString(16, amv.getVideos());
+            ps.setString(17, amv.getUrls());
+            ps.setBoolean(18, amv.isIsPublic());
+            ps.setInt(19, amv.getId());
             
             ps.executeUpdate();
         } catch (SQLException ex) {
@@ -267,6 +271,7 @@ class TableAmv {
             AmvDto amv = new AmvDto();
             amv.setId(rs.getInt("id"));
             amv.setAlias(rs.getString("alias"));
+            amv.setFolderNameOnDisk(rs.getString("folderNameOnDisk"));
             amv.setUploaderUserId(rs.getInt("uploaderUserId"));
             amv.setTitle(rs.getString("title"));
             amv.setDescription(rs.getString("description"));
@@ -282,7 +287,7 @@ class TableAmv {
             amv.setCategories(rs.getString("categories"));
             amv.setVideos(rs.getString("videos"));
             amv.setUrls(rs.getString("urls"));
-            amv.setIsComplete(rs.getBoolean("isComplete"));
+            amv.setIsPublic(rs.getBoolean("isPublic"));
             return amv;
         } catch (SQLException ex) {
             throw new RuntimeException(ex);

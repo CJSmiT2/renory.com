@@ -6,7 +6,6 @@
 package com.renory.service;
 
 import com.renory.view.dto.AmvBaseInfoDto;
-import com.renory.model.entity.amvrules.AccessType;
 import com.renory.model.entity.amv.Amv;
 import com.renory.model.entity.videoclip.VideoQuality;
 import java.io.File;
@@ -28,32 +27,46 @@ public interface AmvService {
     
     void setStudio(int amvId, int studioId);
     
-    void addHit(int amvId);
+    void deleteStudio(int amvId);
+    
+    void addHitOfpage(int amvId);
     
     void addHitOnlineView(int amvId);
     
     void addDownloadCount(int amvId);
     
-    void canComment(int amvId, boolean can);
-    
     void addAuthor(int amvId, int userId);
+    
+    void deleteAuthor(int amvId, int userId);
     
     void addAnimeSrc(int amvId, int animeId);
     
+    void deleteAnimeSrc(int amvId, int animeId);
+    
     void addMusicSrc(int amvId, int musicId);
+    
+    void deleteMusicSrc(int amvId, int musicId);
     
     void addCategory(int amvId, int categoryId);
     
+    void deleteCategory(int amvId, int categoryId);
+    
     void addVideo(int amvId, File videoFile, VideoQuality quality);
+    
+    void deleteVideo(int amvId, int videoId);
     
     void addScreenShots(int amvId, ArrayList<File> screenShots);
     
-    void addEvaluating(int amvId, int userId);
+    void deleteScreenShot(int amvId, int screenShotId);
     
-    void allowedAccess(ArrayList<AccessType> access);
+    void addEvaluating(int amvId, int userId);
     
     void addUrl(int amvId, String url);
     
-    void setIsComplete(String alias, boolean complete);
+    void deleteUrl(int amvId, int urlId);
     
+    void makeIsPublic(int amvId);
+    
+    void makeNotPublic(int amvId);
+
 }

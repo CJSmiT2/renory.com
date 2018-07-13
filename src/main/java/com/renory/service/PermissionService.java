@@ -5,17 +5,11 @@
  */
 package com.renory.service;
 
-import com.renory.model.entity.user.RUser;
-
 /**
  *
  * @author smit
  */
-public interface UserService {
+public interface PermissionService {
     
-    RUser getUser(String login);
-    
-    void createUser(String login);
-    
-    boolean isUserExist(int id);
+    boolean userHaveAccessForEdit(int userId, int amvId, UserService userService, AmvService amvService);
 }
