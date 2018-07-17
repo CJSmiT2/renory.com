@@ -29,5 +29,7 @@ public interface AmvDao {
     public ArrayList<Amv> getAll();
 
     public void clearDb();
+
+    public boolean isAmvExist(int amvId);
     
 }

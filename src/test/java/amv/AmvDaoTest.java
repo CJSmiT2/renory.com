@@ -5,6 +5,7 @@
  */
 package amv;
 
+import content.AmvContentCreater;
 import com.renory.model.dao.impl.AmvDaoImpl;
 import com.renory.model.dao.interfaces.AmvDao;
 import com.renory.model.entity.amv.Amv;

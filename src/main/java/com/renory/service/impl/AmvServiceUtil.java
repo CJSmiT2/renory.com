@@ -7,7 +7,7 @@ package com.renory.service.impl;
 
 import com.renory.model.dao.interfaces.AmvDao;
 import com.renory.model.entity.amv.Amv;
-import com.renory.model.util.alias.AliasUtil;
+import com.renory.model.util.AliasUtil;
 import com.renory.view.dto.AmvBaseInfoDto;
 
 /**
@@ -21,6 +21,7 @@ public class AmvServiceUtil {
         amv.setUploaderUserId(userId);
         amv.setTitle(title);
         amv.setAlias(AliasUtil.makeUniqeAlias(title, dao.getAllAliaces()));
+        amv.initFolderByAlias();
         dao.write(amv);
         amv.makeFolder();
         return amv;

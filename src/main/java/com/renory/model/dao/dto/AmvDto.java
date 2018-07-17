@@ -17,6 +17,7 @@ public class AmvDto {
     private String alias;
     private String folderNameOnDisk;
     private int uploaderUserId;
+    private int managerUserId;
     private String title;
     private String description;
     private int studioId;
@@ -64,6 +65,16 @@ public class AmvDto {
     public void setUploaderUserId(int uploaderUserId) {
         this.uploaderUserId = uploaderUserId;
     }
+
+    public int getManagerUserId() {
+        return managerUserId;
+    }
+
+    public void setManagerUserId(int managerUserId) {
+        this.managerUserId = managerUserId;
+    }
+    
+    
 
     public String getTitle() {
         return title;

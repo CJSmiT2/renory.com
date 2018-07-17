@@ -5,9 +5,9 @@
  */
 package com.renory.service.impl;
 
+import com.renory.secure.user.UserSecure;
 import com.renory.service.AmvService;
 import com.renory.service.PermissionService;
-import com.renory.service.UserService;
 
 /**
  *
@@ -16,8 +16,18 @@ import com.renory.service.UserService;
 public class PermissionServiceImpl implements PermissionService{
 
     @Override
-    public boolean userHaveAccessForEdit(int userId, int amvId, UserService userService, AmvService amvService) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean userHaveAccessForManagementAmv(UserSecure userSecure, int amvId, AmvService amvService) {
+        if (userSecure.issetInGroup("manager")){
+            return true;
+        }
+        
+        if (amvService.userCanManageAmv(userSecure.getId(), amvId)){
+            return true;
+        }
+        
+        return false;
     }
+
+
     
 }

@@ -20,6 +20,7 @@ public class Amv{
     private String alias;
     private File folderOnDisk;
     private int uploaderUserId;
+    private int managerUserId;
     private String title;
     private String description;
     private int studioId;
@@ -68,6 +69,14 @@ public class Amv{
         this.uploaderUserId = uploaderUserId;
     }
 
+    public int getManagerUserId() {
+        return managerUserId;
+    }
+
+    public void setManagerUserId(int managerUserId) {
+        this.managerUserId = managerUserId;
+    }
+    
     public String getTitle() {
         return title;
     }
@@ -217,14 +226,42 @@ public class Amv{
     }
 
     public void deleteAuthor(int userId) {
-        Iterator<Integer> i = authors.iterator();
+        removeFromArray(userId, authors);
+    }
+
+    public void addAnimeSrc(int animeId) {
+        animeSrc.add(animeId);
+    }
+
+    public void deleteAnimeSrc(int animeId) {
+        removeFromArray(animeId, animeSrc);
+    }
+    
+    private void removeFromArray(int valueForRemove, ArrayList<Integer> array){
+        Iterator<Integer> i = array.iterator();
         while (i.hasNext()) {
            Integer value = i.next();
-           if (userId == value){
+           if (value == valueForRemove){
                i.remove();
                break;
            }
         }
+    }
+
+    public void addMusicSrc(int musicId) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void deleteMusicSrc(int musicId) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void initFolderByAlias() {
+        this.folderOnDisk = FolderUtil.initFolderByAlias(alias);
+    }
+
+    public void deleteFolderOnDisk() {
+        FolderUtil.delete(folderOnDisk);
     }
 
     

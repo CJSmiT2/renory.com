@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.renory.model.util.alias;
+package com.renory.model.util;
 
 import com.renory.model.util.TranslitUtil;
 import java.util.ArrayList;

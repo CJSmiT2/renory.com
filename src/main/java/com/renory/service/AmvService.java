@@ -19,6 +19,10 @@ public interface AmvService {
     
     Amv get(String alias);
     
+    Amv get(int id);
+    
+    boolean isAmvExist(int id);
+    
     String createAmv(String title, int userId);
     
     void delete(int amvId);
@@ -35,13 +39,15 @@ public interface AmvService {
     
     void addDownloadCount(int amvId);
     
-    void addAuthor(int amvId, int userId);
+    void addAuthorToAmv(int amvId, int userId);
     
     void deleteAuthor(int amvId, int userId);
     
     void addAnimeSrc(int amvId, int animeId);
     
     void deleteAnimeSrc(int amvId, int animeId);
+    
+    boolean isAnimeSrcExist(int id, int animeSrc);
     
     void addMusicSrc(int amvId, int musicId);
     
@@ -68,5 +74,10 @@ public interface AmvService {
     void makeIsPublic(int amvId);
     
     void makeNotPublic(int amvId);
+
+    public boolean userCanManageAmv(int userId, int amvId);
+
+    public void clearDb();
+    
 
 }

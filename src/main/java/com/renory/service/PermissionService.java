@@ -5,11 +5,13 @@
  */
 package com.renory.service;
 
+import com.renory.secure.user.UserSecure;
+
 /**
  *
  * @author smit
  */
 public interface PermissionService {
     
-    boolean userHaveAccessForEdit(int userId, int amvId, UserService userService, AmvService amvService);
+    public boolean userHaveAccessForManagementAmv(UserSecure userSecure, int amvId, AmvService amvService);
 }

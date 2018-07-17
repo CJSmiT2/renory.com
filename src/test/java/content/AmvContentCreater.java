@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package amv;
+package content;
 
 import com.renory.model.entity.amv.Amv;
 import com.renory.model.entity.amv.UrlFromUser;
+import com.renory.view.dto.AmvBaseInfoDto;
 import java.io.File;
 import java.sql.Date;
 import java.sql.Timestamp;
@@ -21,7 +22,7 @@ public class AmvContentCreater {
     
     private final static Random RANDOM = new Random();
     
-    static Amv getAmv(){
+    public static Amv getAmv(){
         Amv amv = new Amv();
         amv.setAlias("alias-" + getRandomString());
         amv.setFolderOnDisk(new File("folder-" + getRandomString()));
@@ -42,6 +43,15 @@ public class AmvContentCreater {
         amv.setUrls(getRandomUrls());
         amv.isIsPublic();
         return amv;
+    }
+    
+    public static AmvBaseInfoDto baseInfo(){
+        AmvBaseInfoDto baseInfo = new AmvBaseInfoDto();
+        baseInfo.setAlias("alias-" + getRandomString());
+        baseInfo.setDescription("description-" +getRandomString());
+        baseInfo.setTitle("title-" +getRandomString());
+        baseInfo.setDateCreated(new Date(2018, 10, 23));
+        return baseInfo;
     }
     
     private static String getRandomString(){

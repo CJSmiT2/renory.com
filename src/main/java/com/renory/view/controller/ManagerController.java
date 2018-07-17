@@ -5,19 +5,23 @@
  */
 package com.renory.view.controller;
 
+import com.renory.secure.main.UserSecureService;
+import com.renory.secure.main.UserSecureServiceImpl;
+import com.renory.secure.user.UserSecure;
 import com.renory.service.AmvService;
 import com.renory.service.PermissionService;
-import com.renory.service.UserService;
 import com.renory.service.impl.AmvServiceImpl;
 import com.renory.service.impl.PermissionServiceImpl;
-import com.renory.service.impl.UserServiceImpl;
+import com.renory.service.impl.AuthorsServiceImpl;
 import com.renory.view.dto.AmvBaseInfoDto;
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import com.renory.service.AuthorsService;
 
 /**
  *
@@ -27,12 +31,12 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping(value = {"manager/"})
 public class ManagerController {
     
-    public static final String AUTHOR_NOT_FOUND_ERR = "redirect:/add_author?error=1";
     public static final String YOU_NOT_HAVE_ACCESS_FOR_EDIT_ERR = "redirect:/add_author?error=2";
     
-    private final UserService userService = new UserServiceImpl();
+    private final AuthorsService authorsService = new AuthorsServiceImpl();
     private final AmvService amvService = new AmvServiceImpl();
     private final PermissionService permissionService = new PermissionServiceImpl();
+    private final UserSecureService userSecureService = new UserSecureServiceImpl(null, null);
     
     @RequestMapping(value = {"create_new_amv_page"})
     public Object createNew(){
@@ -52,22 +56,18 @@ public class ManagerController {
     @RequestMapping(value = {"add_author"}, method = RequestMethod.POST)
     public Object addAuthor(
             @RequestParam("amvId") int amvId,
-            @RequestParam("authorId") int authorId){
+            @RequestParam("authorId") int authorId,
+            HttpServletRequest request){
         
-        //auth check!!!
-        int userId = 0;
-        if (!permissionService.userHaveAccessForEdit(userId, amvId, userService, amvService)){
+        UserSecure userSecure = userSecureService.getUserBySession(request);
+        
+        if (!permissionService.userHaveAccessForManagementAmv(userSecure, amvId, amvService)){
             return new ModelAndView(YOU_NOT_HAVE_ACCESS_FOR_EDIT_ERR);
         }
         
-        if (userService.isUserExist(authorId)){
-            amvService.addAuthor(amvId, authorId);
-        } else {
-            return new ModelAndView(AUTHOR_NOT_FOUND_ERR);
-        }
+        amvService.addAuthorToAmv(amvId, authorId);
         
-        
-        throw new UnsupportedOperationException();
+        return "redirect:add_author";
     }
     
     @RequestMapping(value = {"update_poster/{alias}"})

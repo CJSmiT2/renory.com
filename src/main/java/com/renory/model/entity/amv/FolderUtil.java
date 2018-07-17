@@ -31,5 +31,15 @@ class FolderUtil {
         checkNotExist(newFolder);
         FilesUtil.move(folderOnDisk, newFolder);
     }
+
+    static File initFolderByAlias(String alias) {
+        return new File(Config.AMV_FOLDER + alias);
+    }
+
+    static void delete(File folderOnDisk) {
+        if (folderOnDisk.exists() && folderOnDisk.isDirectory()){
+            FilesUtil.deleteFolderWithFiles(folderOnDisk);
+        }
+    }
     
 }

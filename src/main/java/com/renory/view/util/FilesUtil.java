@@ -168,6 +168,13 @@ public class FilesUtil {
         return files;
     }
     
+    public static void deleteAllInFolder(File folderForDelete){
+        ArrayList<File> folders = FilesUtil.getFolders(folderForDelete);
+        for (File folder : folders){
+            FilesUtil.deleteFolderWithFiles(folder);
+        }
+    }
+    
     private static void isFolderExistChecking(File folder) {
         if (!folder.exists() || !folder.isDirectory()){
             throw new RuntimeException("BIs folder not exist! " + folder.getAbsolutePath());
