@@ -7,7 +7,7 @@ package com.renory.service.impl;
 
 import com.renory.model.dao.interfaces.AmvDao;
 import com.renory.model.entity.amv.Amv;
-import com.renory.model.util.AliasUtil;
+import com.renory.util.AliasUtil;
 import com.renory.view.dto.AmvBaseInfoDto;
 
 /**

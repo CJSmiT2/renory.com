@@ -5,12 +5,12 @@
  */
 package amv;
 
-import com.renory.config.Config;
+import com.renory.config.GeneralConfig;
 import com.renory.model.entity.amv.Amv;
 import com.renory.service.AmvService;
 import com.renory.service.impl.AmvServiceImpl;
 import com.renory.view.dto.AmvBaseInfoDto;
-import com.renory.view.util.FilesUtil;
+import com.renory.util.FilesUtil;
 import content.AmvContentCreater;
 import java.io.File;
 import org.junit.After;
@@ -75,6 +75,6 @@ public class AmvServiceTest {
     @After
     public void clearDb(){
         amvService.clearDb();
-        FilesUtil.deleteAllInFolder(new File(Config.AMV_FOLDER));
+        FilesUtil.deleteAllInFolder(new File(GeneralConfig.AMV_FOLDER));
     }
 }

@@ -6,7 +6,7 @@
 package com.renory.secure.main;
 
 
-import com.renory.model.util.CookieUtil;
+import com.renory.util.CookieUtil;
 import java.io.File;
 import com.renory.secure.dto.RegInfoDto;
 import java.util.ArrayList;

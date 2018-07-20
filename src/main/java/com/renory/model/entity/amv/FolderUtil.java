@@ -5,8 +5,8 @@
  */
 package com.renory.model.entity.amv;
 
-import com.renory.config.Config;
-import com.renory.view.util.FilesUtil;
+import com.renory.config.GeneralConfig;
+import com.renory.util.FilesUtil;
 import java.io.File;
 
 /**
@@ -27,13 +27,13 @@ class FolderUtil {
     }
 
     static void rename(String alias, File folderOnDisk) {
-        File newFolder = new File(Config.AMV_FOLDER + alias);
+        File newFolder = new File(GeneralConfig.AMV_FOLDER + alias);
         checkNotExist(newFolder);
         FilesUtil.move(folderOnDisk, newFolder);
     }
 
     static File initFolderByAlias(String alias) {
-        return new File(Config.AMV_FOLDER + alias);
+        return new File(GeneralConfig.AMV_FOLDER + alias);
     }
 
     static void delete(File folderOnDisk) {

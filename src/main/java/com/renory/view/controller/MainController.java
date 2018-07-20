@@ -8,6 +8,7 @@ package com.renory.view.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  *
@@ -18,7 +19,7 @@ public class MainController {
     
     @RequestMapping(value = {"/","/home"})
     public Object home(){
-        throw new UnsupportedOperationException();
+        return new ModelAndView("home");
     }
     
     @RequestMapping(value = {"amv/{alias}"})

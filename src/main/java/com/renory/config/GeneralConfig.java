@@ -9,7 +9,7 @@ package com.renory.config;
  *
  * @author smit
  */
-public class Config {
+public class GeneralConfig {
     public static final String PROGRAMM_FOLDER = "/Renory/";
     public static final String FILES_FOLDER = PROGRAMM_FOLDER + "files/";
     public static final String AMV_FOLDER = FILES_FOLDER + "amv/";

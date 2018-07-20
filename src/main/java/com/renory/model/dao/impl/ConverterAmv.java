@@ -5,7 +5,7 @@
  */
 package com.renory.model.dao.impl;
 
-import com.renory.config.Config;
+import com.renory.config.GeneralConfig;
 import com.renory.model.dao.dto.AmvDto;
 import com.renory.model.entity.amv.Amv;
 import java.io.File;
@@ -46,7 +46,7 @@ class ConverterAmv {
         Amv entity = new Amv();
         entity.setId(dto.getId());
         entity.setAlias(dto.getAlias());
-        entity.setFolderOnDisk(new File(Config.AMV_FOLDER + dto.getFolderNameOnDisk()));
+        entity.setFolderOnDisk(new File(GeneralConfig.AMV_FOLDER + dto.getFolderNameOnDisk()));
         entity.setUploaderUserId(dto.getUploaderUserId());
         entity.setManagerUserId(dto.getManagerUserId());
         entity.setTitle(dto.getTitle());

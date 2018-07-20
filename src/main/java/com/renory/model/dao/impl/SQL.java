@@ -7,7 +7,7 @@ package com.renory.model.dao.impl;
 
 
 
-import com.renory.config.Config;
+import com.renory.config.GeneralConfig;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -28,11 +28,11 @@ class SQL {
     private final int port;
 
     public SQL() {
-        this.login = Config.DB_LOGIN;
-        this.password = Config.DB_PASSWORD;
-        this.host = Config.DB_HOST;
-        this.base = Config.DB_BASE;
-        this.port = Config.DB_PORT;
+        this.login = GeneralConfig.DB_LOGIN;
+        this.password = GeneralConfig.DB_PASSWORD;
+        this.host = GeneralConfig.DB_HOST;
+        this.base = GeneralConfig.DB_BASE;
+        this.port = GeneralConfig.DB_PORT;
     }
     
     

@@ -5,7 +5,7 @@
  */
 package com.renory.secure.main;
 
-import com.renory.model.util.TextOnFileUtil;
+import com.renory.util.TextOnFileUtil;
 import java.io.File;
 import java.util.ArrayList;
 

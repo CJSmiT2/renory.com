@@ -6,7 +6,6 @@
 package com.renory.view.controller;
 
 import com.renory.secure.main.UserSecureService;
-import com.renory.secure.main.UserSecureServiceImpl;
 import com.renory.secure.user.UserSecure;
 import com.renory.service.AmvService;
 import com.renory.service.PermissionService;
@@ -22,13 +21,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import com.renory.service.AuthorsService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  *
  * @author smit
  */
 @Controller
-@RequestMapping(value = {"manager/"})
+@RequestMapping(value = {"manage/"})
 public class ManagerController {
     
     public static final String YOU_NOT_HAVE_ACCESS_FOR_EDIT_ERR = "redirect:/add_author?error=2";
@@ -36,11 +36,18 @@ public class ManagerController {
     private final AuthorsService authorsService = new AuthorsServiceImpl();
     private final AmvService amvService = new AmvServiceImpl();
     private final PermissionService permissionService = new PermissionServiceImpl();
-    private final UserSecureService userSecureService = new UserSecureServiceImpl(null, null);
     
-    @RequestMapping(value = {"create_new_amv_page"})
-    public Object createNew(){
-        throw new UnsupportedOperationException();
+    @Autowired
+    private UserSecureService userSecureService;
+    
+    @RequestMapping(value = {"upload_amv"})
+    public Object uploadAmv(){
+        return new ModelAndView("manage/upload_amv");
+    }
+    
+    @RequestMapping(value = {"upload_amv_simple_mod"})
+    public Object uploadAmvSimpleMod(){
+        return new ModelAndView("manage/upload_amv_simple_mod");
     }
     
     

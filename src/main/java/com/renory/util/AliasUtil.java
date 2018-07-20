@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.renory.model.util;
+package com.renory.util;
 
-import com.renory.model.util.TranslitUtil;
+import com.renory.util.TranslitUtil;
 import java.util.ArrayList;
 
 
