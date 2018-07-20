@@ -42,9 +42,9 @@ public class CommonTest2 {
         System.out.println("Start create By User Data");
         
         UserDataDto data = new UserDataDto();
-        data.setLogin("SmiT");
-        data.setNickName("SmiT");
-        data.setPassword("cjsmitbd");
+        data.setLogin("User");
+        data.setNickName("User");
+        data.setPassword("password");
         data.setGroups("ADMIN,CONTENT");
         data.setUsertype("MEMBER");
         data.setEmail("w@w.com");
@@ -58,9 +58,9 @@ public class CommonTest2 {
         
         
         UserDataDto data = new UserDataDto();
-        data.setLogin("SmiT");
-        data.setNickName("SmiT");
-        data.setPassword("cjsmitbd");
+        data.setLogin("User");
+        data.setNickName("User");
+        data.setPassword("password");
         data.setGroups("ADMIN,CONTENT");
         data.setUsertype("MEMBER");
         data.setEmail("w@w.com");

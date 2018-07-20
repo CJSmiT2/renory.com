@@ -30,7 +30,6 @@ class TableAmv {
         String columns = "`alias`,"
                 + "`folderNameOnDisk`,"
                 + "`uploaderUserId`,"
-                + "`managerUserId`,"
                 + "`title`,"
                 + "`description`,"
                 + "`studioId`,"
@@ -48,7 +47,7 @@ class TableAmv {
                 + "`isPublic`";
         
         String query = "INSERT INTO `" + TABLE + "`(" + columns + ") "
-                    + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                    + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         
         try {
 
@@ -56,22 +55,21 @@ class TableAmv {
             ps.setString(1, amv.getAlias());
             ps.setString(2, amv.getFolderNameOnDisk());
             ps.setInt(3, amv.getUploaderUserId());
-            ps.setInt(4, amv.getManagerUserId());
-            ps.setString(5, amv.getTitle());
-            ps.setString(6, amv.getDescription());
-            ps.setInt(7, amv.getStudioId());
-            ps.setDate(8, amv.getDateCreated());
-            ps.setTimestamp(9, amv.getTimeUploaded());
-            ps.setInt(10, amv.getHitsOfPage());
-            ps.setInt(11, amv.getHitsOfOnlineView());
-            ps.setInt(12, amv.getDownloadsCount());
-            ps.setString(13, amv.getAuthors());
-            ps.setString(14, amv.getAnimeSrc());
-            ps.setString(15, amv.getMusicSrc());
-            ps.setString(16, amv.getCategories());
-            ps.setString(17, amv.getVideos());
-            ps.setString(18, amv.getUrls());
-            ps.setBoolean(19, amv.isIsPublic());
+            ps.setString(4, amv.getTitle());
+            ps.setString(5, amv.getDescription());
+            ps.setInt(6, amv.getStudioId());
+            ps.setDate(7, amv.getDateCreated());
+            ps.setTimestamp(8, amv.getTimeUploaded());
+            ps.setInt(9, amv.getHitsOfPage());
+            ps.setInt(10, amv.getHitsOfOnlineView());
+            ps.setInt(11, amv.getDownloadsCount());
+            ps.setString(12, amv.getAuthors());
+            ps.setString(13, amv.getAnimeSrc());
+            ps.setString(14, amv.getMusicSrc());
+            ps.setString(15, amv.getCategories());
+            ps.setString(16, amv.getVideos());
+            ps.setString(17, amv.getUrls());
+            ps.setBoolean(18, amv.isIsPublic());
             
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
@@ -173,7 +171,6 @@ class TableAmv {
                     + "`alias`=?,"
                     + "`folderNameOnDisk`=?,"
                     + "`uploaderUserId`=?,"
-                    + "`managerUserId`=?,"
                     + "`title`=?,"
                     + "`description`=?,"
                     + "`studioId`=?,"
@@ -196,23 +193,22 @@ class TableAmv {
             ps.setString(1, amv.getAlias());
             ps.setString(2, amv.getFolderNameOnDisk());
             ps.setInt(3, amv.getUploaderUserId());
-            ps.setInt(4, amv.getManagerUserId());
-            ps.setString(5, amv.getTitle());
-            ps.setString(6, amv.getDescription());
-            ps.setInt(7, amv.getStudioId());
-            ps.setDate(8, amv.getDateCreated());
-            ps.setTimestamp(9, amv.getTimeUploaded());
-            ps.setInt(10, amv.getHitsOfPage());
-            ps.setInt(11, amv.getHitsOfOnlineView());
-            ps.setInt(12, amv.getDownloadsCount());
-            ps.setString(13, amv.getAuthors());
-            ps.setString(14, amv.getAnimeSrc());
-            ps.setString(15, amv.getMusicSrc());
-            ps.setString(16, amv.getCategories());
-            ps.setString(17, amv.getVideos());
-            ps.setString(18, amv.getUrls());
-            ps.setBoolean(19, amv.isIsPublic());
-            ps.setInt(20, amv.getId());
+            ps.setString(4, amv.getTitle());
+            ps.setString(5, amv.getDescription());
+            ps.setInt(6, amv.getStudioId());
+            ps.setDate(7, amv.getDateCreated());
+            ps.setTimestamp(8, amv.getTimeUploaded());
+            ps.setInt(9, amv.getHitsOfPage());
+            ps.setInt(10, amv.getHitsOfOnlineView());
+            ps.setInt(11, amv.getDownloadsCount());
+            ps.setString(12, amv.getAuthors());
+            ps.setString(13, amv.getAnimeSrc());
+            ps.setString(14, amv.getMusicSrc());
+            ps.setString(15, amv.getCategories());
+            ps.setString(16, amv.getVideos());
+            ps.setString(17, amv.getUrls());
+            ps.setBoolean(18, amv.isIsPublic());
+            ps.setInt(19, amv.getId());
             
             ps.executeUpdate();
         } catch (SQLException ex) {
@@ -277,7 +273,6 @@ class TableAmv {
             amv.setAlias(rs.getString("alias"));
             amv.setFolderNameOnDisk(rs.getString("folderNameOnDisk"));
             amv.setUploaderUserId(rs.getInt("uploaderUserId"));
-            amv.setManagerUserId(rs.getInt("managerUserId"));
             amv.setTitle(rs.getString("title"));
             amv.setDescription(rs.getString("description"));
             amv.setStudioId(rs.getInt("studioId"));
@@ -340,37 +335,6 @@ class TableAmv {
         } catch (SQLException ex) {
             Logger.getLogger(TableAmv.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-
-    boolean isAmvExist(int amvId) {
-        boolean exist = false;
-        Connection connect = null;
-        Statement statement = null;
-        
-        String query = "SELECT `id` FROM " + TABLE + " WHERE `id`='" + amvId + "' ORDER BY id DESC limit 1";
-        
-        try {
-            connect = sql.getConnection();
-            statement = connect.createStatement();
-            ResultSet rs = statement.executeQuery(query);
-            
-            while (rs.next()) {
-                exist = true;
-            }
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(TableAmv.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            try {
-                connect.close();
-                statement.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(TableAmv.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        
-        return exist;
-
     }
 
 

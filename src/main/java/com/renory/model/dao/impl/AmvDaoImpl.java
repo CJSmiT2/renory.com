@@ -57,11 +57,6 @@ public class AmvDaoImpl implements AmvDao{
         db.clearDb();
     }
 
-    @Override
-    public boolean isAmvExist(int amvId) {
-        return db.isAmvExist(amvId);
-    }
-
 
     
 }

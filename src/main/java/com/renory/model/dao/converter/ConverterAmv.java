@@ -3,21 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.renory.service.impl;
+package com.renory.model.dao.converter;
 
-import com.renory.service.AmvService;
-import com.renory.service.PermissionService;
-import com.renory.service.UserService;
+import com.renory.model.dao.dto.AmvDto;
+import com.renory.model.entity.amv.Amv;
 
 /**
  *
  * @author smit
  */
-public class PermissionServiceImpl implements PermissionService{
-
-    @Override
-    public boolean userHaveAccessForEdit(int userId, int amvId, UserService userService, AmvService amvService) {
+public class ConverterAmv {
+    public Amv toEntity(AmvDto dto){
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
 }

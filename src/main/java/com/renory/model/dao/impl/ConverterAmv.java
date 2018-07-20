@@ -23,7 +23,6 @@ class ConverterAmv {
         dto.setAlias(entity.getAlias());
         dto.setFolderNameOnDisk(entity.getFolderOnDisk().getName());
         dto.setUploaderUserId(entity.getUploaderUserId());
-        dto.setManagerUserId(entity.getManagerUserId());
         dto.setTitle(entity.getTitle());
         dto.setDescription(entity.getDescription());
         dto.setStudioId(entity.getStudioId());
@@ -48,7 +47,6 @@ class ConverterAmv {
         entity.setAlias(dto.getAlias());
         entity.setFolderOnDisk(new File(GeneralConfig.AMV_FOLDER + dto.getFolderNameOnDisk()));
         entity.setUploaderUserId(dto.getUploaderUserId());
-        entity.setManagerUserId(dto.getManagerUserId());
         entity.setTitle(dto.getTitle());
         entity.setDescription(dto.getDescription());
         entity.setStudioId(dto.getStudioId());

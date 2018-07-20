@@ -3,37 +3,30 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.renory.model.dao.impl;
+package com.renory.service.impl;
 
-import com.renory.model.dao.interfaces.AnimeDao;
-import com.renory.model.entity.anime.Anime;
+import com.renory.model.entity.user.RUser;
+import com.renory.service.UserService;
 
 /**
  *
  * @author smit
  */
-public class AnimeDaoImpl implements AnimeDao {
+public class UserServiceImpl implements UserService{
 
     @Override
-    public Anime get(int id) {
+    public RUser getUser(String login) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void write(Anime anime) {
+    public void createUser(String login) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void update(Anime anime) {
+    public boolean isUserExist(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    @Override
-    public void delete(Anime anime) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-
     
 }

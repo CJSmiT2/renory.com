@@ -6,7 +6,6 @@
 package com.renory.service;
 
 import com.renory.model.entity.anime.Anime;
-import java.io.File;
 import java.util.ArrayList;
 
 /**
@@ -18,10 +17,6 @@ public interface AnimeService {
     int addAnime(String engTitle);
     
     Anime getAnime(int id);
-    
-    Anime editAnime(int id, String newTitle, String newDate);
-    
-    void setPoster(int id, File poster);
     
     ArrayList<Anime> getAnime(ArrayList<Integer> ids);
     

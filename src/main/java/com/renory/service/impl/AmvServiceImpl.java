@@ -29,11 +29,6 @@ public class AmvServiceImpl implements AmvService{
         Amv amv = AmvServiceUtil.createAmv(title, userId, dao);
         return amv.getAlias();
     }
-    
-    @Override
-    public Amv get(int id) {
-        return dao.get(id);
-    }
 
     @Override
     public Amv get(String alias) {
@@ -44,7 +39,6 @@ public class AmvServiceImpl implements AmvService{
     public void delete(int amvId) {
         Amv amv = dao.get(amvId);
         dao.delete(amv);
-        amv.deleteFolderOnDisk();
     }
 
     @Override
@@ -88,7 +82,7 @@ public class AmvServiceImpl implements AmvService{
     }
 
     @Override
-    public void addAuthorToAmv(int amvId, int userId) {
+    public void addAuthor(int amvId, int userId) {
         Amv amv = dao.get(amvId);
         amv.addAuthor(userId);
         dao.update(amv);
@@ -103,30 +97,22 @@ public class AmvServiceImpl implements AmvService{
 
     @Override
     public void addAnimeSrc(int amvId, int animeId) {
-        Amv amv = dao.get(amvId);
-        amv.addAnimeSrc(animeId);
-        dao.update(amv);
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void deleteAnimeSrc(int amvId, int animeId) {
-        Amv amv = dao.get(amvId);
-        amv.deleteAnimeSrc(animeId);
-        dao.update(amv);
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void addMusicSrc(int amvId, int musicId) {
-        Amv amv = dao.get(amvId);
-        amv.addMusicSrc(musicId);
-        dao.update(amv);
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void deleteMusicSrc(int amvId, int musicId) {
-        Amv amv = dao.get(amvId);
-        amv.deleteMusicSrc(musicId);
-        dao.update(amv);
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
@@ -183,34 +169,6 @@ public class AmvServiceImpl implements AmvService{
     public void makeNotPublic(int amvId) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    @Override
-    public boolean userCanManageAmv(int userId, int amvId) {
-        return dao.get(amvId).getManagerUserId() == userId;
-    }
-
-    @Override
-    public void clearDb() {
-        dao.clearDb();
-    }
-
-    @Override
-    public boolean isAmvExist(int amvId) {
-        return dao.isAmvExist(amvId);
-    }
-
-    @Override
-    public boolean isAnimeSrcExist(int id, int animeSrc) {
-        Amv amv = dao.get(id);
-        for (Integer number : amv.getAnimeSrc()){
-            if (number == animeSrc){
-                return true;
-            }
-        }
-        return false;
-    }
-
-    
 
     
 

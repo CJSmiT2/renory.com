@@ -5,17 +5,17 @@
  */
 package com.renory.service;
 
-import com.renory.model.entity.renoryuser.RUser;
+import com.renory.model.entity.user.RUser;
 
 /**
  *
  * @author smit
  */
-public interface AuthorsService {
+public interface UserService {
     
-    RUser getAuthor(String login);
+    RUser getUser(String login);
     
-    void createAuthor(String login);
+    void createUser(String login);
     
-    boolean isAuthorExist(int id);
+    boolean isUserExist(int id);
 }
